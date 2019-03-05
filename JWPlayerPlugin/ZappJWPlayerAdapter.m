@@ -211,6 +211,12 @@ static NSString *const kPlayableItemsKey = @"playable_items";
     // Setup Ads
     NSArray *adsArray = self.currentPlayableItem.extensionsDictionary[@"videoAds"];
     [self.playerViewController setupPlayerAdvertisingWithConfiguration:adsArray];
+
+    // Setup Subtitle Tracks if provided
+    NSArray *subtitleTracksArray = self.currentPlayableItem.extensionsDictionary[@"sideCarCaptions"];
+    if (subtitleTracksArray != nil) {
+        [self.playerViewController setupPlayerSubtitleTracksWithConfiguration:subtitleTracksArray];
+    }
 }
 
 - (void)handleUserComply:(BOOL)isUserComply

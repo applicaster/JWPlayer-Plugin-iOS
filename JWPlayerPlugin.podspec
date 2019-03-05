@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
 
   s.name             = "JWPlayerPlugin"
-  s.version          = '2.3.1'
+  s.version          = '2.3.2'
   s.summary          = 'JWPlayer Player plugin implementation.'
   s.description      = 'An implementation for JWPlayer as a Zapp Player Plugin in Objective C.'
   s.homepage         = "https://github.com/applicaster/JWPlayer-Plugin-iOS"
   s.license          = 'MIT'
-  s.author           = { "Liviu Romascanu" => "l.romasca@applicaster.com" }
+  s.author           = { "Marcos Reyes" => "m.reyes@applicaster.com" }
   s.source           = { :git => "git@github.com:applicaster/JWPlayer-Plugin-iOS.git", :tag => s.version.to_s }
 
   s.ios.deployment_target   = "9.0"
