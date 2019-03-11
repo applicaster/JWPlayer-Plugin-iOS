@@ -180,7 +180,9 @@
             }
         }
 
-        self.player.config.tracks = subtitleTracksArray;
+        if ([subtitleTracksArray count] > 0) {
+            self.player.config.tracks = subtitleTracksArray;
+        }
     }
 }
 
