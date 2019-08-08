@@ -13,6 +13,8 @@
 
 @implementation ZappJWPlayerAdapter
 
+@synthesize screenPluginDelegate;
+
 static NSString *const kPlayableItemsKey = @"playable_items";
 
 #pragma mark - ZPPlayerProtocol
@@ -306,4 +308,12 @@ static NSString *const kPlayableItemsKey = @"playable_items";
         completion();
     }
 }
+
+#pragma mark - ZPPluggableScreenProtocol / ZPUIBuilderPluginsProtocol
+
+//Necessary to implement this method to allow prehooks, however this constructor is never called for a player
+- (instancetype)initWithPluginModel:(ZPPluginModel *)pluginModel screenModel:(ZLScreenModel *)screenModel dataSourceModel:(NSObject *)dataSourceModel {
+    return nil;
+}
+
 @end

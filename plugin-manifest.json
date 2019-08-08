@@ -8,15 +8,15 @@
   "platform": "ios",
   "author_name": "Marcos Reyes",
   "author_email": "m.reyes@applicaster.com",
-  "manifest_version": "3.0.0",
+  "manifest_version": "3.1.0",
   "name": "JWPlayer",
   "description": "JW Player Plugin for Applicaster Zapp Platform",
   "type": "player",
-  "screen": false,
+  "screen": true,
   "identifier": "JWPlayer-Plugin-iOS",
   "ui_builder_support": true,
   "dependency_name": "JWPlayerPlugin",
-  "dependency_version": "3.0.0",
+  "dependency_version": "3.1.0",
   "whitelisted_account_ids": [],
   "min_zapp_sdk": "11.0.0-Dev",
   "deprecated_since_zapp_sdk": "",
@@ -68,5 +68,21 @@
       "key": "vod_ad_type",
       "tooltip_text": "VOD ad type"
     }
-  ]
+  ],
+  "hooks": {
+    "fields": [
+      {
+        "group": true,
+        "label": "Before Load",
+        "folded": true,
+        "fields": [
+          {
+            "key": "preload_plugins",
+            "type": "preload_plugins_selector",
+            "label": "Select Plugins"
+          }
+        ]
+      }
+    ]
+  }
 }

@@ -14,7 +14,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ZappJWPlayerAdapter : NSObject <ZPPlayerProtocol>
+@interface ZappJWPlayerAdapter : NSObject <ZPPlayerProtocol, ZPPluggableScreenProtocol>
 
 @property (nonatomic, strong) JWPlayerViewController *playerViewController;
 @property (nonatomic, strong) NSObject<ZPPlayable> *currentPlayableItem;
