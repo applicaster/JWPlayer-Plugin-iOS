@@ -304,6 +304,19 @@ static NSString *const kPlayableItemsKey = @"playable_items";
             blockSelf.currentPlayableItem = (NSObject <ZPPlayable>*)model;
             completion();
         }];
+    } else if ([[self currentPlayableItem] isKindOfClass:[APAtomEntryPlayable class]] && ![self.currentPlayableItem.contentVideoURLPath isNotEmptyOrWhiteSpaces])  {
+        APAtomEntryPlayable *model = (APAtomEntryPlayable *)[self currentPlayableItem];
+        NSNumber *channelID = model.extensionsDictionary[@"applicaster_channel_id"];
+        APChannel *channel = [[APApplicasterController sharedInstance].account channelByUniqueID:[channelID stringValue]];
+        if (channel) {
+            __block typeof(self) blockSelf = self;
+            [channel loadWithCompletionHandler:^(BOOL success, APModel *model) {
+                blockSelf.currentPlayableItem = (NSObject <ZPPlayable>*)model;
+                completion();
+            }];
+        } else {
+            completion();
+        }
     } else {
         completion();
     }
